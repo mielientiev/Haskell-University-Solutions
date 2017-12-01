@@ -24,7 +24,7 @@ fizzBuzzTask = do
     putStrLn "Enter number:"
     line <- getLine
     let n = Utils.parseInt line;
-    print (FizzBuzz.fizzBuzz n)
+    print (FizzBuzz.fizzBuzzList n)
 
 sortingTask :: IO()
 sortingTask = do
