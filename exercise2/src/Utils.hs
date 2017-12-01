@@ -4,16 +4,16 @@ module Utils
     ,parseInt
     ) where
 
-    split :: String -> Char -> [String]
-    split [] _ = [""]
-    split (x:xs) delim
-            | x == delim = "" : rest
-            | otherwise = (x : head rest) : tail rest
-            where 
-                rest = split xs delim
+split :: String -> Char -> [String]
+split [] _ = [""]
+split (x:xs) delim
+        | x == delim = "" : rest
+        | otherwise = (x : head rest) : tail rest
+        where 
+            rest = split xs delim
 
-    parseInt :: String -> Int
-    parseInt x = read x
+parseInt :: String -> Int
+parseInt = read
 
-    parseIntArray :: [String] -> [Int]
-    parseIntArray = map parseInt
+parseIntArray :: [String] -> [Int]
+parseIntArray = map parseInt
