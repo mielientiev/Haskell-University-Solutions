@@ -26,7 +26,7 @@ bindConsole (WriteIO str io) f = WriteIO str (bindConsole io f)
 
 mapConsole :: (a -> b) -> ConsoleIO a -> ConsoleIO b
 mapConsole f (Return a) = Return (f a)
-mapConsole f (ReadConsoleIO g)  = ReadConsoleIO (\s -> mapConsole f (g s))
+mapConsole f (ReadConsoleIO g)  = ReadConsoleIO (mapConsole f . g)
 mapConsole f (WriteIO str io) = WriteIO str (mapConsole f io) 
 
 instance Monad ConsoleIO where 
