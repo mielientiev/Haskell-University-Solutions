@@ -5,13 +5,14 @@ module CheckOut
 
 import Fruit
 import Data.Monoid
+import Money
 import Data.Map (Map, (!))
 import qualified Data.Map as Map
 
 type Items = Map Fruit Integer
 
 data CheckOut = CheckOut {
-    getTotal :: Double,
+    getTotal :: Money,
     getItems :: Items
 }
 

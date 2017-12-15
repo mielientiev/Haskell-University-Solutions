@@ -1,15 +1,11 @@
-module DiscountService(
-  discount
-) where
-
+module DiscountService where
 import Fruit
 import CheckOut
+import Money
 import Data.Map (Map, (!))
 import qualified Data.Map as Map
 
-type Price = Double
-
-discount :: Fruit -> Price -> Items -> Double
+discount :: Fruit -> Money -> Items -> Money
 discount fruit price items =
   let numOfFruit = fromInteger (Map.findWithDefault 0 fruit items)
       numOfSkip = fromInteger (discountSkip fruit)
